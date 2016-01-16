@@ -1,0 +1,26 @@
+---
+layout: index
+title: Ski Tracks
+gmaps_api_key: AIzaSyCutm8yU9R_oPItTgnNq1GtuP-3tX7h91M
+---
+
+<h1>SkiTracks!</h1>
+
+<div id="map-canvas" style="height: 600px;"></div>
+
+<script src="https://maps.googleapis.com/maps/api/js?key={{page.gmaps_api_key}}"></script>
+<script src="/js/vendor/jquery-1.11.0.min.js"></script>
+<script src="/js/skitracks-map.js"></script>
+<script>
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+window.initialTrackId = getParameterByName('track') || '1';
+google.maps.event.addDomListener(window, 'load', function(){
+  window.map = new skiTrackMap(document.getElementById("map-canvas"),
+    window.initialTrackId);
+});
+</script>

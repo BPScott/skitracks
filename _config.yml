@@ -1,0 +1,14 @@
+# Site settings
+# url: "http://reload.me.uk"
+# baseurl: "/talk-the-step-after-styleguides"
+
+sass:
+  sass_dir: _sass
+
+kramdown:
+  input: GFM
+
+exclude: [README.md, Gemfile, Gemfile.lock, compile-tracks.rb]
+markdown: kramdown
+safe: true
+lsi: false
